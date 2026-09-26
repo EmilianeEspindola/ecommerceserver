@@ -1,0 +1,17 @@
+package br.edu.utfpr.pb.pw44s.ecommerceserver.service;
+
+import br.edu.utfpr.pb.pw44s.ecommerceserver.model.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.util.List;
+
+public interface IProductService {
+    List<Product> findAll();
+
+    Page<Product> findAll(Pageable pageable);
+
+    Product findById(Long id);
+
+    List<Product> findByCategoryId(Long categoryId);
+}
