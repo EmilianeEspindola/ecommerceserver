@@ -1,6 +1,6 @@
 package br.edu.utfpr.pb.pw44s.ecommerceserver.controller;
 
-import br.edu.utfpr.pb.pw44s.ecommerceserver.dto.UserDTO;
+import br.edu.utfpr.pb.pw44s.ecommerceserver.dto.UserRequestDTO;
 import br.edu.utfpr.pb.pw44s.ecommerceserver.mapper.UserMapper;
 import br.edu.utfpr.pb.pw44s.ecommerceserver.model.User;
 import br.edu.utfpr.pb.pw44s.ecommerceserver.service.UserService;
@@ -21,8 +21,8 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@RequestBody @Valid UserDTO userDTO) {
-        User user = userMapper.toEntity(userDTO);
+    public void createUser(@RequestBody @Valid UserRequestDTO userRequestDTO) {
+        User user = userMapper.toEntity(userRequestDTO);
         userService.save(user);
     }
 }

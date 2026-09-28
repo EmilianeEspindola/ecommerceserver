@@ -2,7 +2,7 @@ package br.edu.utfpr.pb.pw44s.ecommerceserver.security;
 
 import br.edu.utfpr.pb.pw44s.ecommerceserver.dto.AuthRequestDTO;
 import br.edu.utfpr.pb.pw44s.ecommerceserver.model.User;
-import br.edu.utfpr.pb.pw44s.ecommerceserver.security.dto.AuthenticationResponse;
+import br.edu.utfpr.pb.pw44s.ecommerceserver.security.dto.AuthResponseDTO;
 import br.edu.utfpr.pb.pw44s.ecommerceserver.security.dto.UserResponseDTO;
 import br.edu.utfpr.pb.pw44s.ecommerceserver.service.AuthService;
 import com.auth0.jwt.JWT;
@@ -59,6 +59,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         + SecurityConstants.EXPIRATION_TIME)).sign(Algorithm.HMAC512(SecurityConstants.SECRET));
         response.setContentType("application/json");
         response.getWriter().write(
-                new ObjectMapper().writeValueAsString(new AuthenticationResponse(token, new UserResponseDTO(user))));
+                new ObjectMapper().writeValueAsString(new AuthResponseDTO(token, new UserResponseDTO(user))));
     }
 }
