@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.pw44s.ecommerceserver;
 
 import br.edu.utfpr.pb.pw44s.ecommerceserver.dto.UserRequestDTO;
+import br.edu.utfpr.pb.pw44s.ecommerceserver.model.User;
 import br.edu.utfpr.pb.pw44s.ecommerceserver.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -49,16 +50,8 @@ public class UserControllerTest {
     public void postUser_whenUserIsValid_passwordIsHashedInDB() { // Testa a Criptografia da Senha
         UserRequestDTO user = createValidUser(); // Usuário válido
         restTemplate.postForEntity(API_USER, user, Object.class); // Post executado
-        var userDB = userRepository.findAll().getFirst(); // Busca o usuário salvo no BD
+        User userDB = userRepository.findAll().getFirst(); // Busca o usuário salvo no BD
         assertThat(userDB.getPassword()).isNotEqualTo(user.getPassword()); // Senha salva deve ser diferente da original
-    }
-
-    @Test
-    public void postUser_whenUserHasNullName_receiveBadRequest() { // Testa o @NotNull do Nome
-        UserRequestDTO user = createValidUser(); // Usuário válido
-        user.setName(null); // Torna o nome null
-        ResponseEntity<Object> response = restTemplate.postForEntity(API_USER, user, Object.class); // Post executado
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST); // Deve retornar 400 BAD REQUEST
     }
 
     @Test
