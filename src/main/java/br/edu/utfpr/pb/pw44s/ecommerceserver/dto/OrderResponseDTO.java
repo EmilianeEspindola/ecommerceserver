@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.pw44s.ecommerceserver.dto;
 
 import br.edu.utfpr.pb.pw44s.ecommerceserver.model.OrderAddress;
+import br.edu.utfpr.pb.pw44s.ecommerceserver.model.PaymentMethod;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,8 @@ public class OrderResponseDTO {
     private OrderAddress address;
 
     private List<OrderItemResponseDTO> items;
+
+    private PaymentMethod paymentMethod;
 
     private BigDecimal total;
 }

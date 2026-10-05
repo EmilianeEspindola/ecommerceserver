@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.pw44s.ecommerceserver.dto;
 
+import br.edu.utfpr.pb.pw44s.ecommerceserver.model.PaymentMethod;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -21,4 +22,7 @@ public class OrderRequestDTO {
     @NotEmpty // Não permite criar um pedido sem itens
     @Valid // Não permite adicionar itens com quantidade zerada
     private List<OrderItemRequestDTO> items;
+
+    @NotNull
+    private PaymentMethod paymentMethod;
 }

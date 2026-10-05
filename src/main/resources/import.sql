@@ -22,11 +22,11 @@ INSERT INTO tb_address (street, number, complement, neighborhood, city, state, z
 
 -- PEDIDOS
 -- Usuário 1:
-INSERT INTO tb_order (date, user_id, address_street, address_number, address_complement, address_neighborhood, address_city, address_state, address_zip_code) VALUES (CURRENT_TIMESTAMP, 1, 'Rua das Flores', '123', 'Apto 10','Centro', 'Pato Branco', 'PR', '85501-000');
-INSERT INTO tb_order (date, user_id, address_street, address_number, address_complement, address_neighborhood, address_city, address_state, address_zip_code) VALUES (CURRENT_TIMESTAMP, 1, 'Rua das Flores', '123', 'Apto 10','Centro', 'Pato Branco', 'PR', '85501-000');
+INSERT INTO tb_order (date, user_id, payment_method, address_street, address_number, address_complement, address_neighborhood, address_city, address_state, address_zip_code) VALUES (CURRENT_TIMESTAMP, 1, 'PIX', 'Rua das Flores', '123', 'Apto 10','Centro', 'Pato Branco', 'PR', '85501-000');
+INSERT INTO tb_order (date, user_id, payment_method, address_street, address_number, address_complement, address_neighborhood, address_city, address_state, address_zip_code) VALUES (CURRENT_TIMESTAMP, 1, 'CREDIT_CARD','Rua das Flores', '123', 'Apto 10','Centro', 'Pato Branco', 'PR', '85501-000');
 
 -- Usuário 2:
-INSERT INTO tb_order (date, user_id, address_street, address_number, address_complement, address_neighborhood, address_city, address_state, address_zip_code) VALUES (CURRENT_TIMESTAMP, 2, 'Rua Paraná', '500', NULL, 'Centro', 'Pato Branco', 'PR', '85501-100');
+INSERT INTO tb_order (date, user_id, payment_method, address_street, address_number, address_complement, address_neighborhood, address_city, address_state, address_zip_code) VALUES (CURRENT_TIMESTAMP, 2, 'DEBIT_CARD','Rua Paraná', '500', NULL, 'Centro', 'Pato Branco', 'PR', '85501-100');
 
 -- ITENS DOS PEDIDOS
 -- Pedido 1:

@@ -52,7 +52,8 @@ public class OrderController {
                 .state(address.getState()).zipCode(address.getZipCode()).build();
 
         // Pedido a ser montado com informações controladas pelo servidor
-        Order order = Order.builder().date(LocalDateTime.now()).user(user).address(orderAddress).build();
+        Order order = Order.builder().date(LocalDateTime.now()).user(user).address(orderAddress)
+                .paymentMethod(orderRequestDTO.getPaymentMethod()).build();
 
         // Adição de itens ao pedido
         for (OrderItemRequestDTO itemDTO : orderRequestDTO.getItems()) {
