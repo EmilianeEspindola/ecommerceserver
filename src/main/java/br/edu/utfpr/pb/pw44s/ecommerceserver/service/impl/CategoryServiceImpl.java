@@ -18,7 +18,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Category> findAll() {
+    public List<Category> findAll() { // Busca todas para poder retorná-las e listá-las
         return categoryRepository.findAll();
     }
 }

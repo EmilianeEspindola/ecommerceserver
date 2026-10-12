@@ -32,3 +32,5 @@ public class OrderAddress { // Faz uma cópia do endereço escolhido na hora par
     @Column(name = "address_zip_code", nullable = false)
     private String zipCode;
 }
+
+// Não precisa do Repository porque é só uma cópia do endereço (?)

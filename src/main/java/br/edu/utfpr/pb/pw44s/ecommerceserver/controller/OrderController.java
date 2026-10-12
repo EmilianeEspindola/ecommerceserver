@@ -70,6 +70,12 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(orderMapper.toDto(savedOrder)); // Retorna CREATED
     }
 
+    // Permite listar os métodos de pagamentos disponíveis
+    @GetMapping("payment-methods")
+    public ResponseEntity<List<PaymentMethod>> findPaymentMethods() {
+        return ResponseEntity.ok(List.of(PaymentMethod.values()));
+    }
+
     @GetMapping
     public ResponseEntity<List<OrderResponseDTO>> findUserOrders(Authentication authentication) {
         User user = (User) authentication.getPrincipal(); // Usuário autenticado
